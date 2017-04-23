@@ -71,7 +71,7 @@ namespace Naxam.ExpandingCollection.iOS
 			UIView.Animate(
 				duration: duration,
 				delay: 0,
-				options: default(UIViewAnimationOptions),
+				options: UIViewAnimationOptions.TransitionNone,
 				animation: () =>
 				{
 					view.LayoutIfNeeded();
@@ -117,7 +117,7 @@ namespace Naxam.ExpandingCollection.iOS
 			copyCell.BackContainerView.AnimationCornerRadius(copyCell.BackContainerView.Layer.CornerRadius, duration: duration);
 			copyCell.FrontContainerView.AnimationCornerRadius(copyCell.FrontContainerView.Layer.CornerRadius, duration: duration);
 
-			UIView.Animate(duration: duration, delay: 0, options: default(UIViewAnimationOptions), animation: () =>
+			UIView.Animate(duration: duration, delay: 0, options: UIViewAnimationOptions.TransitionNone, animation: () =>
 			{
 				if (rightCell != null)
 				{
@@ -256,7 +256,7 @@ namespace Naxam.ExpandingCollection.iOS
 			var widthConstraint = cell.FrontContainerView.GetConstraint(NSLayoutAttribute.Width);
 			if (widthConstraint != null)
 			{
-				width = frontViewFrame.Size.Width;
+				width = widthConstraint.Constant;
 
 				widthConstraint.Constant = view.Bounds.Size.Width;
 			}
@@ -281,7 +281,7 @@ namespace Naxam.ExpandingCollection.iOS
 			var widthConstraint = cell.BackContainerView.GetConstraint(NSLayoutAttribute.Width);
 			if (widthConstraint != null)
 			{
-				width = backViewFrame.Size.Width;
+				width = widthConstraint.Constant;
 
 				widthConstraint.Constant = view.Bounds.Size.Width;
 			}

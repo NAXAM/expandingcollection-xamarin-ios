@@ -13,7 +13,7 @@ namespace Naxam.ExpandingCollection.iOS
 		public nfloat ScalingOffset { get; set; } = 200f;
 		public nfloat MinimumScaleFactor { get; set; } = 0.9f;
 		public nfloat MinimumAlphaFactor { get; set; } = 0.3f;
-		public bool ScaleItems { get; set; } = false;
+		public bool ScaleItems { get; set; } = true;
 
 		public PageCollectionLayout(NSCoder coder) : base(coder)
 		{

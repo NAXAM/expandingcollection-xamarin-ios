@@ -15,7 +15,7 @@ namespace Naxam.ExpandingCollection.iOS
 		/// </summary>
 		/// <value>The Y Offset.</value>
 		[Export("yOffset"), Browsable(true), DisplayName("Y Offset")]
-		public nfloat YOffset { get; set; }
+		public nfloat YOffset { get; set; } = 40;
 
 		const string BACK_CONTAINER_KEY = "backContainerViewKey";
 
@@ -123,7 +123,7 @@ namespace Naxam.ExpandingCollection.iOS
 			var widthConstant = BackContainerView.GetConstraint(NSLayoutAttribute.Width);
 			if (widthConstant != null)
 			{
-				widthConstant.Constant = isOpen == true ? FrontContainerView.Bounds.Size.Height + YOffset : FrontContainerView.Bounds.Size.Height;
+				widthConstant.Constant = isOpen == true ? FrontContainerView.Bounds.Size.Width + YOffset : FrontContainerView.Bounds.Size.Width;
 			}
 
 			var heightConstant = BackContainerView.GetConstraint(NSLayoutAttribute.Height);
@@ -141,7 +141,7 @@ namespace Naxam.ExpandingCollection.iOS
 				Animate(
 					duration: 0.3,
 					delay: 0,
-					options: default(UIViewAnimationOptions),
+					options: UIViewAnimationOptions.TransitionNone,
 					animation: ContentView.LayoutIfNeeded,
 					completion: null);
 			}
