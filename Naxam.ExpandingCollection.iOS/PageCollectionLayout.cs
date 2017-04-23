@@ -88,8 +88,6 @@ namespace Naxam.ExpandingCollection.iOS
 			{
 				var pageWidth = this.ItemSize.Width + this.MinimumLineSpacing;
 				newOffsetX += velocity.X > 0 ? pageWidth : -pageWidth;
-
-
 			}
 
 			return new CGPoint(x: newOffsetX, y: proposedContentOffset.Y);
@@ -102,11 +100,11 @@ namespace Naxam.ExpandingCollection.iOS
 
 		public override UICollectionViewLayoutAttributes[] LayoutAttributesForElementsInRect(CGRect rect)
 		{
-			var superAttributes = LayoutAttributesForElementsInRect(rect);
+			var superAttributes = base.LayoutAttributesForElementsInRect(rect);
 
 			if (CollectionView == null || superAttributes == null || ScaleItems == false)
 			{
-				return base.LayoutAttributesForElementsInRect(rect);
+				return superAttributes;
 			}
 
 			var contentOffset = CollectionView.ContentOffset;

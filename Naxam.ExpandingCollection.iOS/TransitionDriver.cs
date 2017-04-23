@@ -44,6 +44,8 @@ namespace Naxam.ExpandingCollection.iOS
 				return;
 			}
 
+			copyCell = copyView;
+
 			// move cells
 			MoveCellsCurrentIndex(currentIndex, collectionView: collecitionView);
 
@@ -117,9 +119,15 @@ namespace Naxam.ExpandingCollection.iOS
 
 			UIView.Animate(duration: duration, delay: 0, options: default(UIViewAnimationOptions), animation: () =>
 			{
-				rightCell.Center = new CGPoint(rightCell.Center.X - step, rightCell.Center.Y);
+				if (rightCell != null)
+				{
+					rightCell.Center = new CGPoint(rightCell.Center.X - step, rightCell.Center.Y);
+				}
 
-				leftCell.Center = new CGPoint(leftCell.Center.X - step, leftCell.Center.Y);
+				if (leftCell != null)
+				{
+					leftCell.Center = new CGPoint(leftCell.Center.X + step, leftCell.Center.Y);
+				}
 
 				view.LayoutIfNeeded();
 
@@ -226,7 +234,7 @@ namespace Naxam.ExpandingCollection.iOS
 
 				UIView.Animate(duration: 0.2, animation: () =>
 				{
-					xrightCell.Center = new CGPoint(xleftCell.Center.X + xstep, xleftCell.Center.Y);
+					xrightCell.Center = new CGPoint(xrightCell.Center.X + xstep, xrightCell.Center.Y);
 				});
 
 				rightCell = xrightCell;
@@ -301,10 +309,10 @@ namespace Naxam.ExpandingCollection.iOS
 			if (cell == null) { return; }
 
 			var heightConstraint = cell.FrontContainerView.GetConstraint(NSLayoutAttribute.Height);
-			heightConstraint.Constant = backViewFrame.Size.Height;
+			heightConstraint.Constant = frontViewFrame.Size.Height;
 
 			var widthConstraint = cell.FrontContainerView.GetConstraint(NSLayoutAttribute.Width);
-			widthConstraint.Constant = backViewFrame.Size.Width;
+			widthConstraint.Constant = frontViewFrame.Size.Width;
 
 			cell.FrontConstraintY.Constant = frontViewFrame.Location.Y;
 		}

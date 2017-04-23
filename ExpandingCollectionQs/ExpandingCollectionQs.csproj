@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectGuid>{6BD68FDB-362E-4A1E-88DD-54F4EDE466D6}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ExpandingCollectionQs</RootNamespace>
+    <AssemblyName>ExpandingCollectionQs</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <IOSDebuggerPort>34088</IOSDebuggerPort>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>i386, x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <DefineConstants></DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <DefineConstants></DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>i386, x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="Main.storyboard" />
+    <InterfaceDefinition Include="DemoCollectionViewCell.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="ViewController.cs" />
+    <Compile Include="ViewController.designer.cs">
+      <DependentUpon>ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnimatingBarButton.cs" />
+    <Compile Include="DemoCollectionViewCell.cs" />
+    <Compile Include="DemoCollectionViewCell.designer.cs">
+      <DependentUpon>DemoCollectionViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemoViewController.cs" />
+    <Compile Include="DemoViewController.designer.cs">
+      <DependentUpon>DemoViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemoTableViewController.cs" />
+    <Compile Include="DemoTableViewController.designer.cs">
+      <DependentUpon>DemoTableViewController.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Naxam.ExpandingCollection.iOS\Naxam.ExpandingCollection.iOS.csproj">
+      <Project>{D8FC2316-B25A-4E17-AB1C-87581F89859F}</Project>
+      <Name>Naxam.ExpandingCollection.iOS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\.DS_Store" />
+    <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\BackgroundImage.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\BackgroundImage.imageset\pngIcon.png" />
+    <ImageAsset Include="Assets.xcassets\CloseButton.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\CloseButton.imageset\close.png" />
+    <ImageAsset Include="Assets.xcassets\Title.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Title.imageset\text-1.png" />
+    <ImageAsset Include="Assets.xcassets\dots.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\dots.imageset\dots.png" />
+    <ImageAsset Include="Assets.xcassets\face1.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\face1.imageset\face1.png" />
+    <ImageAsset Include="Assets.xcassets\face2.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\face2.imageset\face2.png" />
+    <ImageAsset Include="Assets.xcassets\heand.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\heand.imageset\heand.png" />
+    <ImageAsset Include="Assets.xcassets\icons.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\icons.imageset\icons.png" />
+    <ImageAsset Include="Assets.xcassets\image.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\image.imageset\image.png" />
+    <ImageAsset Include="Assets.xcassets\items\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\items\item0.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\items\item0.imageset\boston.png" />
+    <ImageAsset Include="Assets.xcassets\items\item1.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\items\item1.imageset\item2.png" />
+    <ImageAsset Include="Assets.xcassets\items\item2.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\items\item2.imageset\san_francisco.png" />
+    <ImageAsset Include="Assets.xcassets\items\item3.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\items\item3.imageset\item4.png" />
+    <ImageAsset Include="Assets.xcassets\locationButton.imageset\Circle.png" />
+    <ImageAsset Include="Assets.xcassets\locationButton.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\map.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\map.imageset\map.png" />
+    <ImageAsset Include="Assets.xcassets\pinIcon.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\pinIcon.imageset\pinIcon.pdf" />
+    <ImageAsset Include="Assets.xcassets\searchIcon.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\searchIcon.imageset\search%28f%29.png" />
+    <ImageAsset Include="Assets.xcassets\stars.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\stars.imageset\stars.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+</Project>

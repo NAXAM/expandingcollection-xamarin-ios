@@ -113,8 +113,7 @@ namespace Naxam.ExpandingCollection.iOS
 													 height: ItemSize.Height + ItemSize.Height / 5 * 2,
 													 dataSource: this,
 													 @delegate: this);
-
-
+			
 			if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
 			{
 				CollectionView.PrefetchingEnabled = false;
@@ -142,6 +141,7 @@ namespace Naxam.ExpandingCollection.iOS
 
 		}
 
+		[Export("scrollViewDidEndDecelerating:")]
 		public void scrollViewDidEndDecelerating(UIScrollView scrollView)
 		{
 			var indexPath = NSIndexPath.FromRowSection(row: CurrentIndex, section: 0);

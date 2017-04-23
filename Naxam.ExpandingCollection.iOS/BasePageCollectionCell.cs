@@ -21,39 +21,39 @@ namespace Naxam.ExpandingCollection.iOS
 
 		const string SHADOW_VIEW_KEY = "shadowViewKey";
 
-		const string FONT_CONTAINER = "frontContainerKey";
+		const string FRONT_CONTAINER = "frontContainerKey";
 
 		const string BACK_CONTAINER_Y_KEY = "backContainerYKey";
 
-		const string FONT_CONTAINER_Y_KEY = "frontContainerYKey";
+		const string FRONT_CONTAINER_Y_KEY = "frontContainerYKey";
 
 		/// <summary>
 		/// The view used as the face of the cell must connectid from xib or storyboard.
 		/// </summary>
 		/// <value>The front container view.</value>
-		[Outlet]
-		public UIView FrontContainerView { get; set; }
+		[Outlet("frontContainerView")]
+		public virtual UIView FrontContainerView { get; set; }
 
 		/// <summary>
 		/// The view used as the back of the cell must connectid from xib or storyboard.
 		/// </summary>
 		/// <value>The back container view.</value>
-		[Outlet]
-		public UIView BackContainerView { get; set; }
+		[Outlet("backContainerView")]
+		public virtual UIView BackContainerView { get; set; }
 
 		/// <summary>
 		/// constraints for backContainerView must connectid from xib or storyboard
 		/// </summary>
 		/// <value>The back constraint y.</value>
-		[Outlet]
-		public NSLayoutConstraint BackConstraintY { get; set; }
+		[Outlet("backConstraintY")]
+		public virtual NSLayoutConstraint BackConstraintY { get; set; }
 
 		/// <summary>
 		/// constraints for frontContainerView must connectid from xib or storyboard
 		/// </summary>
 		/// <value>The font constraint y.</value>
-		[Outlet]
-		public NSLayoutConstraint FrontConstraintY { get; set; }
+		[Outlet("frontConstraintY")]
+		public virtual NSLayoutConstraint FrontConstraintY { get; set; }
 
 		public UIView ShadowView { get; set; }
 
@@ -69,11 +69,10 @@ namespace Naxam.ExpandingCollection.iOS
 		/// </summary>
 		/// <param name="coder">Coder.</param>
 		public BasePageCollectionCell(NSCoder coder)
-			: base(coder)
+					: base(coder)
 		{
 			ConfigureOutletFromDecoder(coder);
 		}
-
 		public BasePageCollectionCell(CGRect frame) : base(frame)
 		{
 			CommonInit();
@@ -81,14 +80,12 @@ namespace Naxam.ExpandingCollection.iOS
 
 		protected internal BasePageCollectionCell(IntPtr ptr) : base(ptr)
 		{
-
 		}
 
 		protected BasePageCollectionCell(NSObjectFlag flag) : base(flag)
 		{
 
 		}
-
 		public BasePageCollectionCell() : base()
 		{
 
@@ -172,7 +169,7 @@ namespace Naxam.ExpandingCollection.iOS
 		{
 			if (view == null) return view;
 
-			var shadow = new BasePageCollectionCell(CGRect.Empty)
+			var shadow = new UIView(CGRect.Empty)
 			{
 				BackgroundColor = UIColor.FromWhiteAlpha(0, 0),
 				TranslatesAutoresizingMaskIntoConstraints = false
@@ -334,8 +331,8 @@ namespace Naxam.ExpandingCollection.iOS
 			base.EncodeTo(encoder);
 
 			encoder.Encode(BackContainerView, BACK_CONTAINER_KEY);
-			encoder.Encode(FrontContainerView, FONT_CONTAINER);
-			encoder.Encode(FrontConstraintY, FONT_CONTAINER_Y_KEY);
+			encoder.Encode(FrontContainerView, FRONT_CONTAINER);
+			encoder.Encode(FrontConstraintY, FRONT_CONTAINER_Y_KEY);
 			encoder.Encode(BackConstraintY, BACK_CONTAINER_Y_KEY);
 			encoder.Encode(ShadowView, SHADOW_VIEW_KEY);
 		}
@@ -354,13 +351,13 @@ namespace Naxam.ExpandingCollection.iOS
 				BackContainerView = backView;
 			}
 
-			var frontView = coder.DecodeObject(FONT_CONTAINER) as UIView;
+			var frontView = coder.DecodeObject(FRONT_CONTAINER) as UIView;
 			if (frontView != null)
 			{
 				FrontContainerView = frontView;
 			}
 
-			var frontConstraintY = coder.DecodeObject(FONT_CONTAINER_Y_KEY) as NSLayoutConstraint;
+			var frontConstraintY = coder.DecodeObject(FRONT_CONTAINER_Y_KEY) as NSLayoutConstraint;
 			if (frontConstraintY != null)
 			{
 				FrontConstraintY = frontConstraintY;
