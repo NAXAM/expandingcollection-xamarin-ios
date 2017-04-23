@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <!-- Required elements-->
+        <id>Naxam.ExpandingCollection.iOS</id>
+        <version>1.0.4</version>
+        <description>C# version of Ramotion.ExpandingCollection</description>
+        <authors>Vu Duc Tuyen</authors>
+        <owners>NAXAM CO.,LTD</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <title>Naxam - ExpandingCollection</title>
+        <releaseNotes>Ramotion.ExpandingCollection v1.0.4</releaseNotes>
+        <summary>Xamarin.iOS Expanding Collection</summary>
+        <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+        <projectUrl>https://github.com/NAXAM/xios-expandingcollection</projectUrl>
+        <copyright>Copyright (c) 2017 NAXAM</copyright>
+        <tags>Xamarin.iOS, ExpandingCollection, expanding-collection</tags>
+    </metadata>
+    <!-- Optional 'files' node -->
+    <files>
+        <file src="Naxam.ExpandingCollection.iOS/bin/Release/Naxam.ExpandingCollection.iOS.dll" target="lib/Xamarin.iOS10/Naxam.ExpandingCollection.iOS.dll" />
+    </files>
+</package>
